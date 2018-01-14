@@ -1,5 +1,12 @@
 <?php
 
+$url = parse_url(getenv("DATABASE_URL"));
+
+$host = $url["host"];
+$username = $url["user"];
+$password = $url["pass"];
+$database = substr($url["path"], 1);
+
 return [
 
     /*
@@ -13,7 +20,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'pgmysql'),
+    'default' => env('DB_CONNECTION', 'pgsqlheroku'),
 
     /*
     |--------------------------------------------------------------------------
@@ -64,6 +71,21 @@ return [
             'charset' => 'utf8',
             'prefix' => '',
             'schema' => 'public',
+            'sslmode' => 'prefer',
+        ],
+
+        'pgsqlheroku' => [
+            'driver'   => 'pgsql',
+            'host'     => $host,
+            'database' => $database,
+            'username' => $username,
+            'password' => $password,
+            'charset'  => 'utf8',
+            'prefix'   => '',
+            'schema'   => 'public',
+            
+            
+            'port' => env('DB_PORT', '5432'),
             'sslmode' => 'prefer',
         ],
 
