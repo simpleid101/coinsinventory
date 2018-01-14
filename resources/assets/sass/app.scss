@@ -1,0 +1,18 @@
+
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+
+#coins-table tbody tr:hover{
+    cursor: pointer;
+    background-color: rgb(142, 187, 211);
+}
+
+.paginate_button{
+    cursor: pointer;
+}
