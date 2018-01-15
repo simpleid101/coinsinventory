@@ -10,7 +10,7 @@
 	
 		<div class="col-sm-4">
 		@if($coin->obverse_photo)
-			<img src="{{Storage::url($coin->obverse_photo)}}" class="img-responsive img-circle center-block" >
+			<img src="{{$coin->obverse_photo}}" class="img-responsive  center-block" >
 		@endif
 		</div>
 	
@@ -18,7 +18,7 @@
 	
 		<div class="col-sm-4">
 		@if($coin->reverse_photo)
-			<img src="{{Storage::url($coin->reverse_photo)}}" class="img-responsive img-circle center-block" >
+			<img src="{{$coin->reverse_photo}}" class="img-responsive  center-block" >
 		@endif
 		</div>
 	
