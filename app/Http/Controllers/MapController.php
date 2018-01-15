@@ -33,8 +33,8 @@ class MapController extends Controller
 
         if ($request->hasFile('mapImg')) 
         {
-            $path = $request->file('mapImg')->store('public');
-            $map->map_image = $path;
+            $url = \Cloudinary\Uploader::upload($request->file('mapImg'))['url'];
+            $map->map_image = $url;
         }
             
         $map->grid_size = $request->input('grid-size');

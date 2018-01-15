@@ -45,11 +45,13 @@ class CoinController extends Controller
         
         
         $this->setFields($coin, $request);
-        $op = $this->storePhoto('obverse_photo', $request);
-        $rp = $this->storePhoto('reverse_photo', $request);
+        $op = $coin->storePhoto($request->file('obverse_photo'));
+        $rp = $coin->storePhoto($request->file('reverse_photo'));
         
-        $coin->obverse_photo = $op;
-        $coin->reverse_photo = $rp;
+        $coin->obverse_photo = $op['url'];
+        $coin->obverse_photo_pid = $op['public_id'];
+        $coin->reverse_photo = $rp['url'];
+        $coin->reverse_photo_pid = $rp['public_id'];
 
         if ($op && $rp && $coin->save()) {
             \Session::flash('status', [ 'state' => 'success', 'msg' => 'Coin saved']);
@@ -100,8 +102,8 @@ class CoinController extends Controller
         $coin = \App\Coin::find($id);
         
         $this->setFields($coin, $request);
-        $this->replacePhoto($coin, 'obverse_photo', $request);
-        $this->replacePhoto($coin, 'reverse_photo', $request);
+        $coin->replacePhoto('obverse_photo', $request);
+        $coin->replacePhoto('reverse_photo', $request);
 
         if ($coin->save()){
             \Session::flash('status', [ 'state' => 'success', 'msg' => 'Changes saved']);
@@ -151,16 +153,4 @@ class CoinController extends Controller
         $coin->find_date = $request->input('date');
     }
 
-    private function storePhoto($name, $request){
-        return $request->file($name)->store('public');
-    }
-
-    private function replacePhoto($coin, $name, $request)
-    {
-        if ($request->hasFile($name)) {
-            $op = $this->storePhoto($name, $request);
-            \Storage::delete($coin->obverse_photo);
-            $coin->obverse_photo = $op;
-        }
-    }
 }

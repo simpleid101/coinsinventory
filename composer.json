@@ -10,7 +10,9 @@
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
         "doctrine/dbal": "v2.5.13",
-        "fzaninotto/faker": "~1.4"
+        "fzaninotto/faker": "~1.4",
+        "cloudinary/cloudinary_php": "1.8.0"
+        
     },
     "require-dev": {
         "filp/whoops": "~2.0",

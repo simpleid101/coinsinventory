@@ -16,7 +16,7 @@ MapModel.prototype.createImage = function(raw){
     if (raw instanceof File) {
         img.src = URL.createObjectURL(raw);
     } else if(typeof(raw) == 'string'){
-        img.src = raw.replace('public', '/storage');
+        img.src = raw;
     }
 
     return img;

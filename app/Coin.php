@@ -18,4 +18,20 @@ class Coin extends Model
     public function mint(){
         return $this->belongsTo('App\Mint');
     }
+
+    public function storePhoto($f){
+        return \Cloudinary\Uploader::upload($f);
+        //return $request->file($name)->store('public');
+    }
+
+    public function replacePhoto($name, $request)
+    {
+        if ($request->hasFile($name)) {
+            $pid = $name  . '_pid' ;
+            $op = $this->storePhoto($request->file($name));
+            \Cloudinary\Uploader::destroy($this[$pid]);
+            $this[$name] = $op['url'];
+            $this[$pid] = $op['public_id'];
+        }
+    } 
 }

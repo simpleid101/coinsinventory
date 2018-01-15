@@ -6,10 +6,10 @@
   <div class="col-sm-10 col-md-10 col-sm-offset-1 col-md-offset-1">
     <div class="thumbnail">
 			<div class="col-sm-6">
-      <img src="{{Storage::url($coin->obverse_photo)}}" class="img-responsive" alt="...">
+      <img src="{{$coin->obverse_photo}}" class="img-responsive" alt="...">
 			</div>
 			<div class="col-sm-6">
-			<img src="{{Storage::url($coin->reverse_photo)}}" class="img-responsive" alt="...">
+			<img src="{{$coin->reverse_photo}}" class="img-responsive" alt="...">
 			</div>
 
 			<div class="col-sm-6">
@@ -22,7 +22,7 @@
 			<div class="col-sm-6">			
 				<div class="caption">
 					<h4>Field Number</h4>
-					<p>{{$coin->bag_number}}</p>
+					<p>{{$coin->field_inventory}}</p>
 				</div>
 			</div>
 
@@ -40,7 +40,7 @@
 <div class="col-sm-6">
     <div class="caption">
         <h4>Denomination</h4>
-        <p>{{$coin->bag_number}}</p>
+        <p>{{$coin->denomination}}</p>
       </div>
 </div>
 
@@ -54,63 +54,63 @@
 <div class="col-sm-6">
       <div class="caption">
         <h4>Reverse</h4>
-        <p>{{$coin->bag_number}}</p>
+        <p>{{$coin->reverse}}</p>
       </div>
 </div>
 
 <div class="col-sm-6">
       <div class="caption">
         <h4>Mint</h4>
-        <p>{{$coin->bag_number}}</p>
+        <p>{{$coin->mint->name}}</p>
       </div>
 </div>
 
 <div class="col-sm-6">
       <div class="caption">
         <h4>Mintmark</h4>
-        <p>{{$coin->bag_number}}</p>
+        <p>{{$coin->mintmark->mark}}</p>
       </div>
 </div>
 
 <div class="col-sm-6">
       <div class="caption">
         <h4>Diameter</h4>
-        <p>{{$coin->bag_number}}</p>
+        <p>{{$coin->diameter}}</p>
       </div>
 </div>
 
 <div class="col-sm-6">
       <div class="caption">
         <h4>Weight</h4>
-        <p>{{$coin->bag_number}}</p>
+        <p>{{$coin->weight}}</p>
       </div>
 </div>
 
 <div class="col-sm-6">
       <div class="caption">
         <h4>Emission</h4>
-        <p>{{$coin->bag_number}}</p>
+        <p>{{$coin->emission}}</p>
       </div>
 </div>
 
 <div class="col-sm-6">
       <div class="caption">
         <h4>Axis</h4>
-        <p>{{$coin->bag_number}}</p>
+        <p>{{$coin->axis}}</p>
       </div>
 </div>
 
 <div class="col-sm-6">
       <div class="caption">
         <h4>Date</h4>
-        <p>{{$coin->bag_number}}</p>
+        <p>{{$coin->find_date}}</p>
       </div>
 </div>
 
 <div class="col-sm-6">
       <div class="caption">
         <h4>Reference</h4>
-        <p>{{$coin->bag_number}}</p>
+        <p>{{$coin->reference}}</p>
       </div>
 </div>
      

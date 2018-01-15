@@ -25,7 +25,7 @@ class CoinSeeder extends Seeder
         "AE 2","AE 3","AE 4","Aureus","Denarius","Quinarius","Sestertius",
         "Dupondius","As","Semis","Quadrans"];
         $mids = Mint::pluck('id')->toArray();
-        for ($i = 50; $i<1000; $i++ ) {        
+        for ($i = 50; $i<1050; $i++ ) {        
             DB::table('coins')->insert(
                 [
                     "field_inventory" => $f->numberBetween(1, 10000) . "/" . $f->numberBetween(1960, 2017) ,
@@ -46,8 +46,8 @@ class CoinSeeder extends Seeder
                     //"updated_at" => ,
                     "mint_id" =>  $randomMid = $f->randomElement($mids),
                     "mintmark_id" => $f->randomElement(Mintmark::where('mint_id', $randomMid)->pluck('id')->toArray()),
-                    "obverse_photo" => $this->imgFname($f->image('storage/app/public', 500, 500, 'cats')),
-                    "reverse_photo" => $this->imgFname($f->image('storage/app/public', 500, 500, 'cats'))
+                    "obverse_photo" => \Cloudinary\Uploader::upload($f->image('storage/app/public', 500, 500, 'cats'))['url'],
+                    "reverse_photo" => \Cloudinary\Uploader::upload($f->image('storage/app/public', 500, 500, 'cats'))['url']
                     
                 ]
             );
