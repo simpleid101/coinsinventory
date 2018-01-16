@@ -16,7 +16,7 @@
         {{ session('status')['msg'] }}
     </div>
 @endif
-<div class="col-sm-12">
+<div class="col-sm-12 table-responsive">
     <table id="coins-table" class="table table-striped display">
         <thead>
         <tr>

@@ -6,10 +6,10 @@
   <div class="col-sm-10 col-md-10 col-sm-offset-1 col-md-offset-1">
     <div class="thumbnail">
 			<div class="col-sm-6">
-      <img src="{{$coin->obverse_photo}}" class="img-responsive" alt="...">
+      <img src="{{$coin->obverse_photo}}" class="img-responsive">
 			</div>
 			<div class="col-sm-6">
-			<img src="{{$coin->reverse_photo}}" class="img-responsive" alt="...">
+			<img src="{{$coin->reverse_photo}}" class="img-responsive">
 			</div>
 
 			<div class="col-sm-6">

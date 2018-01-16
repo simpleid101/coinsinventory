@@ -9,7 +9,6 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Brand</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -18,7 +17,6 @@
         <li ><a href="{{ action('MapController@index') }}">Map</a></li>
         <li ><a href="{{ action('CoinController@index') }}">Catalogue</a></li>
         <li><a href="{{ action('CoinController@create') }}">New</a></li>
-       \
       </ul>
 
     </div><!-- /.navbar-collapse -->

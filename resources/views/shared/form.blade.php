@@ -8,15 +8,15 @@
 	
 	<div class="row show-grid">
 	
-		<div class="col-sm-4">
+		<div class="col-sm-6">
 		@if($coin->obverse_photo)
 			<img src="{{$coin->obverse_photo}}" class="img-responsive  center-block" >
 		@endif
 		</div>
 	
-		<div class="col-sm-4"></div>
+
 	
-		<div class="col-sm-4">
+		<div class="col-sm-6">
 		@if($coin->reverse_photo)
 			<img src="{{$coin->reverse_photo}}" class="img-responsive  center-block" >
 		@endif
@@ -56,13 +56,12 @@
 			<label for="mintmark" class="col-sm-1 control-label">Mintmark</label>
 			<div class="col-sm-5">
 				<select name="mintmark">
-					@foreach(\App\Mintmark::where('mint_id', $coin->mint_id)->get() as $mintmark)
+					@foreach(\App\Mintmark::all() as $mintmark)
 					@php
 						$selected = $coin->mintmark_id == $mintmark->id ? 'selected' : '';
 					@endphp
 						<option value="{{$mintmark->id}}" {{$selected}} >{{$mintmark->mark}}</option>
 					@endforeach
-						<option value="1" selected>1</option>
 				</select>
 			</div>
 
