@@ -58,4 +58,16 @@ class CoinSeeder extends Seeder
         $n = explode('/', $s);
         return $n[count($n) -1];
     }
+
+    foreach ($r['resources'] as $d) {
+        if (Coin::where('obverse_photo', $d['url'])->count() > 0) {
+            $c = Coin::where('obverse_photo', $d['url'])->first();
+            $c->obverse_photo_pid = $d['public_id'];
+            $c->save();
+        } else if (Coin::where('reverse_photo', $d['url'])->count() > 0){
+            $c = Coin::where('reverse_photo', $d['url'])->first();
+            $c->reverse_photo_pid = $d['public_id'];
+            $c->save();
+        }
+    }
 }
